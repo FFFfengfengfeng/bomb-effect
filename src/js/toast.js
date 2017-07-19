@@ -47,9 +47,11 @@
         
         _this.show();
         
-        setTimeout(function() {
-            _this.close();
-        }, Number(options.time));
+        if (!(options.time === 'infinite')) {
+            setTimeout(function() {
+                _this.close();
+            }, Number(options.time));
+        }
     }
     
     Toast.prototype.createDOM = function() {

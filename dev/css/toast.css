@@ -119,11 +119,11 @@ a:active {
   top: 35%;
   left: 0;
   right: 0;
-  margin: auto;
-  border-radius: 5px;
+  margin: 0 auto;
   color: #FFF;
-  width: 1.5rem;
-  height: 1.5rem;
+  text-align: center;
+  font-size: .25rem;
+  background: #FFF;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,15 +133,19 @@ a:active {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  font-size: .25rem;
 }
 .u-toast .u-icon {
   font-size: .48rem;
 }
 .u-toast p {
   padding-top: .1rem;
+}
+.u-toast .toast-content {
+  padding: .3rem;
+  border-radius: 5px;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 /*
  * ============================================================
