@@ -1,42 +1,38 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>toast</title>
-		<script src="dist/js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="dist/css/toast.min.css"/>
-	</head>
-	<body>
-	    <div class="g-main f-tc">
-	        <a href="javascript:;" class="u-btn btn-block" id="J_Load">加载</a>
-	        <a href="javascript:;" class="u-btn btn-block btn-danger" id="J_Error">失败</a>
-	        <a href="javascript:;" class="u-btn btn-block btn-success" id="J_Success">成功</a>
-	    </div>
-	    <script src="dist/js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
-	    <script src="dist/js/toast.min.js" type="text/javascript" charset="utf-8"></script>
-	    <script type="text/javascript">
-	    	$('#J_Load').on('click', function(e) {
-	    	    $.toast({
-	    	        type: 'loading',
-	    	        info: '加载中',
-	    	        time: 'infinite'
-	    	    });
-	    	});
-	    	$('#J_Error').on('click', function(e) {
-	    	    $.toast({
-	    	        type: 'error',
-	    	        info: '操作失败',
-	    	        time: 2000
-	    	    });
-	    	});
-	    	$('#J_Success').on('click', function(e) {
-	    	    $.toast({
-	    	        type: 'success',
-	    	        info: '操作成功',
-	    	        time: 2000
-	    	    });
-	    	});
-	    </script>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹弹球</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+        }
+        #b1{
+            background-color: yellow;
+            height: 100px;
+            width: 100px;
+            position: fixed;
+            left: 10px;
+            top: 10px;
+        }
+        #b2{
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="b2"></div>
+    <div id="b1"></div>
+    <script src="./jquery.min.js"></script>
+    <script src="./bomb-effect.js"></script>
+    <script>
+        $('#b1').BombEffect();
+    </script>
+</body>
 </html>
