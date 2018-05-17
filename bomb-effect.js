@@ -4,7 +4,8 @@
     //默认参数
     var defaults = {
         width: 100,
-        height: 100
+        height: 100,
+        speed: 0
     };
     
     function BombEffect(element, options) {
@@ -24,9 +25,13 @@
             height: op.height + 'px',
             width: op.width + 'px',
             position: 'fixed',
-            bottom: '10px',
-            right: '10px',
+            left: window.innerWidth - op.width + 'px',
+            top: window.innerHeight - op.height + 'px',
+            display: 'block'
         })
+
+        // 关闭按钮
+        _this.$close = $el.find('.bombeffect-close');
 
         // isRight
         _this.isRigth = true;
@@ -34,10 +39,10 @@
         _this.isTop = true;
 
         // 窗口宽度
-        _this.winWidth  = $(window).width();
+        _this.winWidth  = window.innerWidth;
 
         // 窗口高度
-        _this.winHeight = $(window).height();
+        _this.winHeight = window.innerHeight;
 
         // element定位left最大值
         _this.bombLeft = _this.winWidth - op.width;
@@ -47,16 +52,16 @@
 
         $(window).resize(function() {
             // 窗口宽度
-            _this.winWidth  = $(window).width();
+            _this.winWidth  = window.innerWidth;
 
             // 窗口高度
-            _this.winHeight = $(window).height();
+            _this.winHeight = window.innerHeight;
 
             // element定位left最大值
-            _this.bombLeft = _this.winWidth - 100;
+            _this.bombLeft = _this.winWidth - op.width;
 
             // element定位top最大值
-            _this.bombTop = _this.winHeight - 100;
+            _this.bombTop = _this.winHeight - op.height;
         });
 
         $el.mouseout(function() {
@@ -65,20 +70,21 @@
         $el.mouseover(function() {
             clearInterval(_this.timer);
         });
-
+        _this.$close.on('click', function() {
+            $el.remove();
+        });
         _this.run();
     }
 
     // 开始动画
     BombEffect.prototype.run = function(cb) {
         var _this = this;
-
         _this.timer = setInterval(function() {
             _this.top();
             _this.right();
             _this.left();
             _this.down();
-        });
+        }, _this.options.speed);
     }
 
     // 向上移动

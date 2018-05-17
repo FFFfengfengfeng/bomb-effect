@@ -13,10 +13,21 @@
         html{
             height: 100%;
         }
-        #b1{
-            background-color: yellow;
-            left: 10px;
-            top: 10px;
+        #BombEffect{
+            transition: all linear;
+            display: none;
+        }
+        #BombEffect img{
+            display: block;
+            width: 100%;
+            height: 297px;
+        }
+        #BombEffect p{
+            height: 20px;
+            text-align: right;
+        }
+        #BombEffect .bombeffect-close:hover{
+            color: #980b11;
         }
         #b2{
             height: 5000px;
@@ -25,13 +36,17 @@
 </head>
 <body>
     <div id="b2"></div>
-    <div id="b1"></div>
+    <div id="BombEffect">
+        <p><a href="javascript:;" class="bombeffect-close">关闭</a></p>
+        <img src="./1.png">
+    </div>
     <script src="./jquery.min.js"></script>
     <script src="./bomb-effect.js"></script>
     <script>
-        $('#b1').BombEffect({
-            height: 200,
-            width: 100
+        $('#BombEffect').BombEffect({
+            height: 320, // 元素高度
+            width: 190,  // 元素宽度
+            speed: 10     // 动画速度
         });
     </script>
 </body>
