@@ -15,9 +15,6 @@
         }
         #b1{
             background-color: yellow;
-            height: 100px;
-            width: 100px;
-            position: fixed;
             left: 10px;
             top: 10px;
         }
@@ -32,7 +29,10 @@
     <script src="./jquery.min.js"></script>
     <script src="./bomb-effect.js"></script>
     <script>
-        $('#b1').BombEffect();
+        $('#b1').BombEffect({
+            height: 200,
+            width: 100
+        });
     </script>
 </body>
 </html>

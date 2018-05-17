@@ -3,7 +3,8 @@
     
     //默认参数
     var defaults = {
-    
+        width: 100,
+        height: 100
     };
     
     function BombEffect(element, options) {
@@ -18,8 +19,18 @@
             $el   = _this.$element,
             op    = _this.options;
 
+        // 设置样式
+        $el.css({
+            height: op.height + 'px',
+            width: op.width + 'px',
+            position: 'fixed',
+            bottom: '10px',
+            right: '10px',
+        })
+
         // isRight
         _this.isRigth = true;
+        // isTop
         _this.isTop = true;
 
         // 窗口宽度
@@ -29,10 +40,10 @@
         _this.winHeight = $(window).height();
 
         // element定位left最大值
-        _this.bombLeft = _this.winWidth - 100;
+        _this.bombLeft = _this.winWidth - op.width;
 
         // element定位top最大值
-        _this.bombTop = _this.winHeight - 100;
+        _this.bombTop = _this.winHeight - op.height;
 
         $(window).resize(function() {
             // 窗口宽度
