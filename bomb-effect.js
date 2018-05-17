@@ -27,7 +27,8 @@
             position: 'fixed',
             left: window.innerWidth - op.width + 'px',
             top: window.innerHeight - op.height + 'px',
-            display: 'block'
+            display: 'block',
+            'z-index': 9999
         })
 
         // 关闭按钮
